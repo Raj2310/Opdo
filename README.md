@@ -1,9 +1,9 @@
 # Opdo
 Opinionated todo app with subtasks 
 
-_Motivation_ : https://www.youtube.com/watch?v=FKTxC9pl-WM
+__Motivation__ : https://www.youtube.com/watch?v=FKTxC9pl-WM
 
-_Hero Line_ : Tasks are more optimized when managed using small subtasks
+__Hero Line__ : Tasks are more optimized when managed using small subtasks
 
 ## Pro Tips
 * Maske small subtasks
