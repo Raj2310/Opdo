@@ -1,24 +1,33 @@
 import React,{Component} from 'react'
-import {Card, Icon, List, Checkbox } from 'semantic-ui-react'
-import * as taskData from '../../data.json' 
+import {Card, Icon, List, Button } from 'semantic-ui-react'
 
-const TaskList = ({taskType}) =>(
+const TaskList = ({taskType,tasks,handleClick}) =>{
+    return(
                 <Card centered>
                     <Card.Content header={taskType} />
                     <Card.Content>
                         <List divided verticalAlign='middle'>
-                            {taskData[taskType].map((tsk,index)=><List.Item key={index}>
+                            {tasks.map((tsk,index)=><List.Item key={index}>
+                                <List.Content floated='right'>
+                                    <Button animated='vertical' size='mini' 
+                                        onClick={(e,data)=>handleClick(taskType,index)}>
+                                      <Button.Content hidden>Move</Button.Content>
+                                      <Button.Content visible>
+                                        <Icon name='right arrow' />
+                                      </Button.Content>
+                                    </Button>
+                                </List.Content>
                                 <List.Content>
-                                    <List.Header as='a'><Checkbox /> {tsk}</List.Header>
+                                    <List.Header as='a'>{tsk}</List.Header>
                                 </List.Content>
                             </List.Item>)}
                         </List>
                     </Card.Content>
                     <Card.Content extra>
                         <Icon name='user' />
-                        {taskData[taskType].length} tasks
-                        </Card.Content>
+                        {tasks.length} tasks
+                    </Card.Content>
                 </Card>
-)
+)}
 
 export default TaskList
