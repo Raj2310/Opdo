@@ -15,9 +15,16 @@ class  TodoListContainer extends Component {
         return this.state[taskType]
     }
     handleClick(taskType,id){
-        const doingArray=state['doing'].concat(state['todo'].slice(id,id+1))
+        const todo=this.state['todo'].filter((elm,index)=>index!=id)
+        const doingArray=this.state['doing'].concat(this.state['todo'].slice(id,id+1))
+        this.setState({
+            todo:todo,
+            doing:doingArray
+        })
+       
     }
     render(){
+        console.log(this.state['doing'])
         return(
         <Container className="top-margin border-normal padding-normal"> 
             <Grid  columns={3}>

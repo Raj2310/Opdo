@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import TodoListContainer from './Components/TodoListContainer'
-import 'semantic-ui-css/semantic.min.css';
+import 'semantic-ui-css/semantic.min.css'
 
 
 class App extends Component {
