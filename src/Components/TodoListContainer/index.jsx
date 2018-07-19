@@ -3,27 +3,26 @@ import { Container, Grid, Card, Icon, List, Checkbox } from 'semantic-ui-react'
 import TaskList from '../TaskList'
 import * as taskData from '../../data.json' 
 import {getNextTaskType} from '../../api'
+import Task from '../Task'
 class  TodoListContainer extends Component {
     constructor(props) {
       super(props)
-      // Don't call this.setState() here!
-      this.state = taskData
+      this.state = {tasks:taskData}
       this.getTasks = this.getTasks.bind(this)
       this.handleClick = this.handleClick.bind(this)
     }
     getTasks(taskType){
-        return this.state[taskType]
+        return this.state.tasks.filter((task)=>task.taskType==taskType)
     }
     
     handleClick(taskType,id){
-        const currentTaskType=taskType
+        const taskUnderConsideration=this.state.tasks.find((tsk)=>tsk._id==id)
+        //Get the Next status of the task
         const nextTaskType=getNextTaskType(taskType)
-        const currentTaskList=this.state[currentTaskType].filter((elm,index)=>index!=id)
-        const nextTaskList=this.state[nextTaskType].concat(this.state[currentTaskType].slice(id,id+1))
-        const obj={}
-        obj[currentTaskType]=currentTaskList
-        obj[nextTaskType]=nextTaskList
-        this.setState(obj)
+        Object.assign(taskUnderConsideration,{taskType:nextTaskType})
+        const finalTaskList=Object.create(this.state.tasks.filter((tsk)=>tsk._id==id)
+                                    .concat(taskUnderConsideration))
+        this.setState({finalTaskList})
        
     }
     render(){
@@ -41,6 +40,7 @@ class  TodoListContainer extends Component {
                      <TaskList taskType="done" tasks={this.getTasks('done')} handleClick={this.handleClick}/>
                 </Grid.Column>
             </Grid>
+            <Task/>
         </Container>
         )
     }

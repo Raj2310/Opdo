@@ -7,10 +7,10 @@ const TaskList = ({taskType,tasks,handleClick}) =>{
                     <Card.Content header={taskType} />
                     <Card.Content>
                         <List divided verticalAlign='middle'>
-                            {tasks.map((tsk,index)=><List.Item key={index}>
+                            {tasks.map((tsk,index)=><List.Item key={tsk._id}>
                                 <List.Content floated='right'>
                                     <Button animated='vertical' size='mini' 
-                                        onClick={(e,data)=>handleClick(taskType,index)}>
+                                        onClick={(e,data)=>handleClick(taskType,tsk._id)}>
                                       <Button.Content hidden>Move</Button.Content>
                                       <Button.Content visible>
                                         <Icon name='right arrow' />
@@ -18,7 +18,7 @@ const TaskList = ({taskType,tasks,handleClick}) =>{
                                     </Button>
                                 </List.Content>
                                 <List.Content>
-                                    <List.Header as='a'>{tsk}</List.Header>
+                                    <List.Header as='a'>{tsk.desc}</List.Header>
                                 </List.Content>
                             </List.Item>)}
                         </List>
