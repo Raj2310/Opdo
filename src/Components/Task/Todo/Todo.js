@@ -9,3 +9,5 @@ class Todo extends Task{
         return TODO_TASK_TYPE
     }
 }
+
+export default Todo

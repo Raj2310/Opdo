@@ -3,6 +3,7 @@ import { Container, Grid, Card, Icon, List, Checkbox } from 'semantic-ui-react'
 import TaskList from '../TaskList'
 import * as taskData from '../../data.json' 
 import {getNextTaskType} from '../../api'
+import Todo from '../Task/Todo/Todo.js'
 import Task from '../Task'
 class  TodoListContainer extends Component {
     constructor(props) {
@@ -23,24 +24,26 @@ class  TodoListContainer extends Component {
         const finalTaskList=Object.create(this.state.tasks.filter((tsk)=>tsk._id==id)
                                     .concat(taskUnderConsideration))
         this.setState({finalTaskList})
-       
     }
     render(){
-        console.log(this.state['doing'])
+        const todo=new Todo(1,null,"do Something")
         return(
         <Container className="top-margin border-normal padding-normal"> 
             <Grid  columns={3}>
                 <Grid.Column  key={1}>
-                   <TaskList taskType="todo" tasks={this.getTasks('todo')} handleClick={this.handleClick}/>
+                   <TaskList taskType="todo" tasks={this.getTasks('todo')} 
+                   handleClick={this.handleClick}/>
                 </Grid.Column>
                 <Grid.Column key={2}>
-                     <TaskList taskType="doing" tasks={this.getTasks('doing')} handleClick={this.handleClick}/>
+                     <TaskList taskType="doing" tasks={this.getTasks('doing')} 
+                     handleClick={this.handleClick}/>
                 </Grid.Column>
                 <Grid.Column key={3}>
-                     <TaskList taskType="done" tasks={this.getTasks('done')} handleClick={this.handleClick}/>
+                     <TaskList taskType="done" tasks={this.getTasks('done')} 
+                     handleClick={this.handleClick}/>
                 </Grid.Column>
             </Grid>
-            <Task/>
+            <Task {...todo}/>
         </Container>
         )
     }
