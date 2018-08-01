@@ -3,8 +3,6 @@ import { Container, Grid, Card, Icon, List, Checkbox } from 'semantic-ui-react'
 import TaskList from '../TaskList'
 import * as taskData from '../../data.json' 
 import {getNextTaskType} from '../../api'
-import Todo from '../Task/Todo/Todo.js'
-import Task from '../Task'
 class  TodoListContainer extends Component {
     constructor(props) {
       super(props)
@@ -26,7 +24,6 @@ class  TodoListContainer extends Component {
         this.setState({finalTaskList})
     }
     render(){
-        const todo=new Todo(1,null,"do Something")
         return(
         <Container className="top-margin border-normal padding-normal"> 
             <Grid  columns={3}>
@@ -43,7 +40,6 @@ class  TodoListContainer extends Component {
                      handleClick={this.handleClick}/>
                 </Grid.Column>
             </Grid>
-            <Task {...todo}/>
         </Container>
         )
     }

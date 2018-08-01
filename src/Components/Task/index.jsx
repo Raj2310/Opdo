@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import {Card, Icon, List, Button } from 'semantic-ui-react'
-import Todo from './Todo/Todo.js'
 
-class Task extends Component {
-  constructor(props){
-    super(props)
-    console.log(props)
-     }
-  render() {
-    return (
-      <div>
+const Task=({task,handleClick})=>{
+  return (
+      <List.Item>
         <List.Content floated='right'>
-          <Button animated='vertical' size='mini'>
+          <Button animated='vertical' size='mini'
+          onClick={(e,data)=>handleClick(task.taskType,task._id)}>
             <Button.Content hidden>Move</Button.Content>
             <Button.Content visible>
               <Icon name='right arrow' />
@@ -19,11 +14,9 @@ class Task extends Component {
           </Button>
         </List.Content>
         <List.Content>
-          <List.Header as='a'>{this.props.desc}</List.Header>
+          <List.Header as='a'>{task.description}</List.Header>
         </List.Content>
-      </div>
-    );
-  }
+      </List.Item>
+  )
 }
-
 export default Task;
