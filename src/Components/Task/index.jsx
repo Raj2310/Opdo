@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {Card, Icon, List, Button } from 'semantic-ui-react'
 
-const Task=({task,handleClick})=>{
+const Task=({task,handleClick,dragStart})=>{
   return (
-      <List.Item>
+      <List.Item draggable 
+      onDragStart={dragStart} 
+      >
         <List.Content floated='right'>
           <Button animated='vertical' size='mini'
           onClick={(e,data)=>handleClick(task.taskType,task._id)}>
