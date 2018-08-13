@@ -9,43 +9,43 @@
       "_id": "5b4f71c734625b4ab2970c49",
       "parentTaskId": "5b4f71c76eeb111731921f95",
       "taskType": "todo",
-      "desc": "ASSISTIA"
+      "desc": "Webpack"
     },
     {
       "_id": "5b4f71c7ef242042cb469c14",
       "parentTaskId": "5b4f71c7f004f988774976ce",
       "taskType": "todo",
-      "desc": "BUZZMAKER"
+      "desc": "Testing in js"
     },
     {
       "_id": "5b4f71c7475c89e5d5988fa6",
       "parentTaskId": "5b4f71c7f4be3ab84e9d50f3",
       "taskType": "todo",
-      "desc": "PROSURE"
+      "desc": "Debugging in js"
     },
     {
       "_id": "5b4f71c7b56b9db08dc1087d",
       "parentTaskId": "5b4f71c77b4130a49283d3ae",
       "taskType": "todo",
-      "desc": "CYTREX"
+      "desc": "Learn to code in git friendly style"
     },
     {
       "_id": "5b4f71c75fad6633410a1435",
       "parentTaskId": "5b4f71c7e1ade92fd7adb019",
       "taskType": "todo",
-      "desc": "INTRAWEAR"
+      "desc": "Add reorder feature in Opdo"
     },
     {
       "_id": "5b4f71c7a3172df3d7937d95",
       "parentTaskId": "5b4f71c767bea304e5eebbc2",
-      "taskType": "doing",
-      "desc": "TETRATREX"
+      "taskType": "todo",
+      "desc": "Do 1 dependency injection and 1 decorator pattern implementation"
     },
     {
       "_id": "5b4f71c77d3ccc1029d9b441",
       "parentTaskId": "5b4f71c7a7c9997ecb4f5ede",
-      "taskType": "doing",
-      "desc": "PYRAMI"
+      "taskType": "todo",
+      "desc": "Learn soap and its difference with rest"
     },
     {
       "_id": "5b4f71c73164d67b48f2b549",

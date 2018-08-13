@@ -16,3 +16,9 @@ body {
   padding: 10px;
 }
 
+.ui.list > .list-floated{
+  padding: 10px;
+}
+.ui.list > .list-drag-border{
+  border: 1px solid #8b8484;
+}

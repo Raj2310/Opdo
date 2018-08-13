@@ -18,6 +18,8 @@ class  TodoListContainer extends Component {
     dragStart(event,taskType, _id){
         event.dataTransfer.setData("text/plain", JSON.stringify({type:taskType,id:_id}))
         //console.log(taskType, _id)
+        event.target.classList.add(".list-drag-border");
+        console.log(event.target.classList)
     }
     onDragOver(e){
         //console.log("Drag Over")
