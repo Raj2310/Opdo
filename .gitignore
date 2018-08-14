@@ -9,7 +9,7 @@
 
 # production
 /build
-
+target/
 # misc
 .DS_Store
 .env.local

@@ -8,6 +8,7 @@
     "react-scripts": "1.1.4",
     "semantic-ui-css": "^2.3.2",
     "semantic-ui-react": "^0.81.2",
+    "uuid": "^3.3.2",
     "watchman": "^1.0.0"
   },
   "scripts": {

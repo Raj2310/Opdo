@@ -3,108 +3,108 @@
       "_id": "5b4f71c751c248578aa4f8d0",
       "parentTaskId": "5b4f71c7a7082f6bb875df3f",
       "taskType": "done",
-      "desc": "VERAQ"
+      "description": "VERAQ"
     },
     {
       "_id": "5b4f71c734625b4ab2970c49",
       "parentTaskId": "5b4f71c76eeb111731921f95",
       "taskType": "todo",
-      "desc": "Webpack"
+      "description": "Webpack"
     },
     {
       "_id": "5b4f71c7ef242042cb469c14",
       "parentTaskId": "5b4f71c7f004f988774976ce",
       "taskType": "todo",
-      "desc": "Testing in js"
+      "description": "Testing in js"
     },
     {
       "_id": "5b4f71c7475c89e5d5988fa6",
       "parentTaskId": "5b4f71c7f4be3ab84e9d50f3",
       "taskType": "todo",
-      "desc": "Debugging in js"
+      "description": "Debugging in js"
     },
     {
       "_id": "5b4f71c7b56b9db08dc1087d",
       "parentTaskId": "5b4f71c77b4130a49283d3ae",
       "taskType": "todo",
-      "desc": "Learn to code in git friendly style"
+      "description": "Learn to code in git friendly style"
     },
     {
       "_id": "5b4f71c75fad6633410a1435",
       "parentTaskId": "5b4f71c7e1ade92fd7adb019",
       "taskType": "todo",
-      "desc": "Add reorder feature in Opdo"
+      "description": "Add reorder feature in Opdo"
     },
     {
       "_id": "5b4f71c7a3172df3d7937d95",
       "parentTaskId": "5b4f71c767bea304e5eebbc2",
       "taskType": "todo",
-      "desc": "Do 1 dependency injection and 1 decorator pattern implementation"
+      "description": "Do 1 dependency injection and 1 decorator pattern implementation"
     },
     {
       "_id": "5b4f71c77d3ccc1029d9b441",
       "parentTaskId": "5b4f71c7a7c9997ecb4f5ede",
       "taskType": "todo",
-      "desc": "Learn soap and its difference with rest"
+      "description": "Learn soap and its difference with rest"
     },
     {
       "_id": "5b4f71c73164d67b48f2b549",
       "parentTaskId": "5b4f71c761260fa46dd666ce",
       "taskType": "done",
-      "desc": "BEDLAM"
+      "description": "BEDLAM"
     },
     {
       "_id": "5b4f71c7c4c8a629fedcb88b",
       "parentTaskId": "5b4f71c7eb35752ca9fa0797",
       "taskType": "done",
-      "desc": "OVOLO"
+      "description": "OVOLO"
     },
     {
       "_id": "5b4f71c753782eeaa25a3ba8",
       "parentTaskId": "5b4f71c7ab79facc9fa99b7f",
       "taskType": "todo",
-      "desc": "GRAINSPOT"
+      "description": "Learn encoding"
     },
     {
       "_id": "5b4f71c7c07fb6a2b5390e6a",
       "parentTaskId": "5b4f71c7db238056c5a78761",
       "taskType": "todo",
-      "desc": "VISALIA"
+      "description": "VISALIA"
     },
     {
       "_id": "5b4f71c7f632550278abe526",
       "parentTaskId": "5b4f71c79f3490e28399c39d",
       "taskType": "done",
-      "desc": "MAGNEMO"
+      "description": "MAGNEMO"
     },
     {
       "_id": "5b4f71c7928f074b15d2deb9",
       "parentTaskId": "5b4f71c704d022e72a7eca5d",
       "taskType": "doing",
-      "desc": "QUANTASIS"
+      "description": "QUANTASIS"
     },
     {
       "_id": "5b4f71c73640d2d0fdbb552d",
       "parentTaskId": "5b4f71c7572c37c3468c0d9c",
       "taskType": "doing",
-      "desc": "CORPULSE"
+      "description": "CORPULSE"
     },
     {
       "_id": "5b4f71c7d94728ac5de99327",
       "parentTaskId": "5b4f71c7bd9aa44e493c3766",
       "taskType": "todo",
-      "desc": "GINKLE"
+      "description": "GINKLE"
     },
     {
       "_id": "5b4f71c74a4472167309f817",
       "parentTaskId": "5b4f71c7041a239ff9f4e342",
       "taskType": "todo",
-      "desc": "KINETICUT"
+      "description": "KINETICUT"
     },
     {
       "_id": "5b4f71c7a64470a8476d4acc",
       "parentTaskId": "5b4f71c74890391b84c60f6d",
       "taskType": "done",
-      "desc": "ENTROFLEX"
+      "description": "ENTROFLEX"
     }
   ]
