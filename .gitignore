@@ -82,3 +82,9 @@ typings/
 
 # next.js build output
 .next
+
+# secret 
+credentials
+
+# editor
+*.vscode

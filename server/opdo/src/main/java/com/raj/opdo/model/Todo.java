@@ -19,10 +19,9 @@ public class Todo {
 	 */
 	public Todo(String id, String description, String parentId, String taskType) {
 		super();
-		this.id = id;
 		this.description = description;
 		this.parentId = parentId;
-		this.taskType = taskType;
+		this.taskType = taskType!=null?taskType:"todo";
 	}
 
 	/**

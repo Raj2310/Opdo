@@ -9,7 +9,16 @@ import TaskDTO from '../../domain/TaskDTO';
 class TodoListContainer extends Component {
     constructor(props) {
         super(props)
-        this.state = { tasks: taskData }
+        this.state={tasks:taskData,
+        loading:false}
+        var self=this
+        fetch('http://localhost:8080/task')
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(myJson) {
+            self.setState({tasks:myJson._embedded.task,loading:true})
+        })
         this.getTasks = this.getTasks.bind(this)
         this.dragStart = this.dragStart.bind(this)
         this.onDragOver = this.onDragOver.bind(this)
@@ -19,14 +28,11 @@ class TodoListContainer extends Component {
     getTasks(taskType) {
         return this.state.tasks.filter((task) => task.taskType == taskType)
     }
-    dragStart(event, taskType, _id) {
-        event.dataTransfer.setData("text/plain", JSON.stringify({ type: taskType, id: _id }))
-        //console.log(taskType, _id)
+    dragStart(event, taskType, id) {
+        event.dataTransfer.setData("text/plain", JSON.stringify({ type: taskType, id: id }))
         event.target.classList.add(".list-drag-border");
-        console.log(event.target.classList)
     }
     onDragOver(e) {
-        //console.log("Drag Over")
         e.preventDefault()
     }
     onDrop(e, taskType) {
@@ -35,11 +41,12 @@ class TodoListContainer extends Component {
         const sourceTaskType = source.type
         const destinationTaskType = taskType
 
-        const taskUnderConsideration = this.state.tasks.find((tsk) => tsk._id == sourceTaskId)
+        const taskUnderConsideration = this.state.tasks
+                                    .find((tsk) => tsk.id == sourceTaskId)
         //Get the Next status of the task
         const nextTaskType = destinationTaskType
         Object.assign(taskUnderConsideration, { taskType: nextTaskType })
-        const finalTaskList = Object.create(this.state.tasks.filter((tsk) => tsk._id == sourceTaskId)
+        const finalTaskList = Object.create(this.state.tasks.filter((tsk) => tsk.id == sourceTaskId)
             .concat(taskUnderConsideration))
         this.setState({ finalTaskList })
 
@@ -52,33 +59,41 @@ class TodoListContainer extends Component {
         
     }
     render() {
-        return (
-            <Container>
-                <TaskCreator handleClick={this.addTask}/>
-                <Container className="top-margin border-normal padding-normal">
-                    <Grid columns={3}>
-                        <Grid.Column key={1}
-                            onDragOver={(e) => this.onDragOver(e)}
-                            onDrop={(e) => { this.onDrop(e, "todo") }} >
-                            <TaskList taskType="todo" tasks={this.getTasks('todo')}
-                                dragStart={this.dragStart} />
-                        </Grid.Column>
-                        <Grid.Column key={2}
-                            onDragOver={(e) => this.onDragOver(e)}
-                            onDrop={(e) => { this.onDrop(e, "doing") }}>
-                            <TaskList taskType="doing" tasks={this.getTasks('doing')}
-                                dragStart={this.dragStart} />
-                        </Grid.Column>
-                        <Grid.Column key={3}
-                            onDragOver={(e) => this.onDragOver(e)}
-                            onDrop={(e) => { this.onDrop(e, "done") }}>
-                            <TaskList taskType="done" tasks={this.getTasks('done')}
-                                dragStart={this.dragStart} />
-                        </Grid.Column>
-                    </Grid>
+        if(this.state.loading){
+            return (
+                <Container>
+                    <TaskCreator handleClick={this.addTask}/>
+                    <Container className="top-margin border-normal padding-normal">
+                        <Grid columns={3}>
+                            <Grid.Column key={1}
+                                onDragOver={(e) => this.onDragOver(e)}
+                                onDrop={(e) => { this.onDrop(e, "todo") }} >
+                                <TaskList taskType="todo" tasks={this.getTasks('todo')}
+                                    dragStart={this.dragStart} />
+                            </Grid.Column>
+                            <Grid.Column key={2}
+                                onDragOver={(e) => this.onDragOver(e)}
+                                onDrop={(e) => { this.onDrop(e, "doing") }}>
+                                <TaskList taskType="doing" tasks={this.getTasks('doing')}
+                                    dragStart={this.dragStart} />
+                            </Grid.Column>
+                            <Grid.Column key={3}
+                                onDragOver={(e) => this.onDragOver(e)}
+                                onDrop={(e) => { this.onDrop(e, "done") }}>
+                                <TaskList taskType="done" tasks={this.getTasks('done')}
+                                    dragStart={this.dragStart} />
+                            </Grid.Column>
+                        </Grid>
+                    </Container>
                 </Container>
-            </Container>
-        )
+            )
+        }else{
+            return(
+                <div>
+                </div>
+            )
+        }
+        
     }
 }
 export default TodoListContainer

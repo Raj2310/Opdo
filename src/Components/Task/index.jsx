@@ -9,7 +9,7 @@ class Task extends Component{
     this.dragEnd= this.dragEnd.bind(this)
   }
   drag(e){
-    this.props.dragStart(e,this.props.task.taskType, this.props.task._id)
+    this.props.dragStart(e,this.props.task.taskType, this.props.task.id)
     this.setState({
       drag:true
     })
