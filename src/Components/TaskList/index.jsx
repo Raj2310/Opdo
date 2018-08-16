@@ -8,7 +8,7 @@ const TaskList = ({ taskType, tasks, handleClick, dragStart}) =>{
                     <Card.Content header={taskType} />
                     <Card.Content>
                         <List divided verticalAlign='middle'>
-                            {tasks.map(tsk=>new TaskDTO(tsk.id,taskType,null,tsk.description))
+                            {tasks
                             .map(task=><Task key={task.id} task={task}
                                 dragStart={dragStart} />)}
                         </List>

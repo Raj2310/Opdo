@@ -46,16 +46,50 @@ class TodoListContainer extends Component {
         //Get the Next status of the task
         const nextTaskType = destinationTaskType
         Object.assign(taskUnderConsideration, { taskType: nextTaskType })
+         var self=this
         const finalTaskList = Object.create(this.state.tasks.filter((tsk) => tsk.id == sourceTaskId)
             .concat(taskUnderConsideration))
-        this.setState({ finalTaskList })
+        fetch(taskUnderConsideration._links.self.href,{
+            method:'PATCH',
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                // "Content-Type": "application/x-www-form-urlencoded",
+            },
+        
+    body:JSON.stringify({taskType:nextTaskType})})
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(myJson) {
+            self.setState({ finalTaskList })
+        })
 
     }
     addTask(str){
-        this.setState({
-            tasks: this.state.tasks
-                    .concat(new TaskDTO(null,"todo",null,str))
+        var self=this
+        fetch('http://localhost:8080/task',{
+            method:'POST',
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                // "Content-Type": "application/x-www-form-urlencoded",
+            },
+        
+    body:JSON.stringify({
+  description:str,
+  taskType:"todo"
+})})
+        .then(function(response) {
+            return response.json()
         })
+        .then(function(myJson) {
+            const url=myjson.links.self
+            const id=url.slice(url.lastIndexOf('/')).substr(1)
+            self.setState({
+                tasks: this.state.tasks
+                        .concat(new TaskDTO(null,"todo",null,str))
+            })
+        })
+        
         
     }
     render() {
