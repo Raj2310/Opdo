@@ -3,16 +3,17 @@ import { Container, Grid, Card, Icon, List, Checkbox } from 'semantic-ui-react'
 import TaskList from '../TaskList'
 import * as taskData from '../../data.json'
 import { getNextTaskType } from '../../api'
-import TaskCreator from '../TaskCreator';
-import Task from '../Task';
-import TaskDTO from '../../domain/TaskDTO';
+import TaskCreator from '../TaskCreator'
+import Task from '../Task'
+import TaskDTO from '../../domain/TaskDTO'
+import * as appConfig from '../../appConfig.json'
 class TodoListContainer extends Component {
     constructor(props) {
         super(props)
         this.state={tasks:taskData,
         loading:false}
         var self=this
-        fetch('http://localhost:8080/task')
+        fetch(appConfig.serverUrl+'/task')
         .then(function(response) {
             return response.json()
         })
@@ -67,7 +68,7 @@ class TodoListContainer extends Component {
     }
     addTask(str){
         var self=this
-        fetch('http://localhost:8080/task',{
+        fetch(appConfig.serverUrl+'/task',{
             method:'POST',
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
@@ -82,11 +83,12 @@ class TodoListContainer extends Component {
             return response.json()
         })
         .then(function(myJson) {
-            const url=myjson.links.self
+            const url=myJson._links.self.href
             const id=url.slice(url.lastIndexOf('/')).substr(1)
+            myJson.id=id
             self.setState({
-                tasks: this.state.tasks
-                        .concat(new TaskDTO(null,"todo",null,str))
+                tasks: self.state.tasks
+                        .concat(myJson)
             })
         })
         

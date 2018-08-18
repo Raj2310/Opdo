@@ -15,6 +15,9 @@ export default class TaskCreator extends Component {
 
     handleClick =()=>{
         this.props.handleClick(this.state.taskText)
+        this.setState({
+            modalOpen: false
+        })
     }
     render() {
         return (
