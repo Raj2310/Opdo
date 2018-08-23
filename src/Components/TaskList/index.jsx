@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Card, Icon, List, Button } from 'semantic-ui-react'
-import Task from '../Task';
+import ArchieveTask from '../Task/ArchieveTask';
 import TaskDTO  from '../../domain/TaskDTO'
 const TaskList = ({ taskType, tasks, handleClick, dragStart}) =>{
     return(
@@ -9,7 +9,7 @@ const TaskList = ({ taskType, tasks, handleClick, dragStart}) =>{
                     <Card.Content>
                         <List divided verticalAlign='middle'>
                             {tasks
-                            .map(task=><Task key={task.id} task={task}
+                            .map(task=><ArchieveTask key={task.id} task={task}
                                 dragStart={dragStart} />)}
                         </List>
                     </Card.Content>
