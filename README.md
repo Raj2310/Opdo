@@ -1,5 +1,6 @@
 # Opdo
 Opinionated todo app with subtasks 
+__Published at__ : https://raj2310.github.io/Opdo/
 
 __Motivation__ : https://www.youtube.com/watch?v=FKTxC9pl-WM
 
