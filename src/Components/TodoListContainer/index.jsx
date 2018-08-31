@@ -13,7 +13,7 @@ class TodoListContainer extends Component {
         this.state={tasks:taskData,
         loading:false}
         var self=this
-        fetch(appConfig.serverUrl+'/task')
+        fetch(appConfig.serverUrl+'/task?size=1000')
         .then(function(response) {
             return response.json()
         })
