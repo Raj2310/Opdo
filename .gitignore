@@ -88,3 +88,5 @@ credentials
 
 # editor
 *.vscode
+.idea/
+opdo.iml
