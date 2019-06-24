@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Header,
-  Icon,
-  Modal,
-  Input,
-  Dropdown
-} from "semantic-ui-react";
+import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
+import LabelDropdown from "./LabelDropdown";
 
 export default class TaskCreator extends Component {
   state = {
@@ -47,14 +41,7 @@ export default class TaskCreator extends Component {
         <Header icon="edit" content="New Task" />
         <Modal.Content>
           <Input onChange={this.handleChange} placeholder="Learn Rx..." />
-          <Dropdown
-            placeholder="Labels"
-            fluid
-            multiple
-            search
-            selection
-            options={this.state.labels}
-          />
+          <LabelDropdown />
         </Modal.Content>
         <Modal.Actions>
           <Button
