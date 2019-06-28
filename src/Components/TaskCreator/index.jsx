@@ -3,14 +3,14 @@ import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
 import LabelDropdown from "./LabelDropdown";
 
 export default class TaskCreator extends Component {
-  state = {
-    modalOpen: false,
-    taskText: "",
-    labels: [
-      { key: "Read Book", text: "Read Book", value: "Read Book" },
-      { key: "Coding", text: "Coding", value: "Coding" }
-    ]
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false,
+      taskText: "",
+      labels: []
+    };
+  }
 
   handleOpen = () => this.setState({ modalOpen: true });
 
@@ -21,9 +21,16 @@ export default class TaskCreator extends Component {
   };
 
   handleClick = () => {
-    this.props.handleClick(this.state.taskText);
+    console.log(this.state.labels, "from TaskCreator");
+
+    this.props.handleClick(this.state.taskText, this.state.labels);
     this.setState({
       modalOpen: false
+    });
+  };
+  handleLableAdded = (e, data) => {
+    this.setState({
+      labels: data.value
     });
   };
   render() {
@@ -41,7 +48,7 @@ export default class TaskCreator extends Component {
         <Header icon="edit" content="New Task" />
         <Modal.Content>
           <Input onChange={this.handleChange} placeholder="Learn Rx..." />
-          <LabelDropdown />
+          <LabelDropdown onAddItem={this.handleLableAdded} />
         </Modal.Content>
         <Modal.Actions>
           <Button

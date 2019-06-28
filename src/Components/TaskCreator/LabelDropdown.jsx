@@ -25,21 +25,31 @@ export default class LabelDropdown extends Component {
             return {
               key: element.id,
               value: element.name,
+              color: element.color,
               text: element.name
             };
           });
           self.setState({
-            labels: myJson._embedded.label.map(element => {
-              return {
-                key: element.id,
-                value: element.name,
-                text: element.name
-              };
-            })
+            labels: labelsArray
           });
         });
     }
   }
+  onAddItem = (e, data) => {
+    console.log(e.getCurrentTarget());
+    console.log(data);
+    /*this.setState({
+      labels: data.map(element => {
+        return {
+          name: element.name,
+          color: this.state.labels.find(val => {
+            return val.key === data.key;
+          })
+        };
+      })
+    });*/
+    //this.props.onAddItem(this.state.labels);
+  };
   render() {
     return (
       <Dropdown
@@ -49,6 +59,7 @@ export default class LabelDropdown extends Component {
         search
         selection
         options={this.state.labels}
+        onChange={this.onAddItem}
       />
     );
   }
